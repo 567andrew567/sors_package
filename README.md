@@ -26,7 +26,7 @@
     * 直接執行kyber_client()即可
     * 需要2個參數，`{topicname}`及`{keypath}`，`{topic name}`，`{topic_name}`帶入server指定的service的topic名稱，`{key_path}`指定金鑰的存放路徑
     * ex:
-    ```python=
+    ```python
     kyber_client('bot1','kyber_keys/bot1_client.key')
     ```
 
@@ -35,7 +35,7 @@
 * 初始化：
     * class需要帶入金鑰儲存位置
     * ex:
-    ```python=
+    ```python
     from sros_package.AES_tools import AES_tools
     aes = AES_tools(key_path)
     ```
@@ -63,7 +63,7 @@
 * 初始化：
     * class需要帶入`{topic_list}`、`{key_path}`、`{target}`，`{topic_list}`須帶入一個list，包含3台bot接收控制指令的topic名稱，`{key_path}`目標bot所使用的金鑰位置，`{target}`目標bot所使用的接收控制指令的topic名稱
     * ex:
-    ```python=
+    ```python
     from sros_package.publisher_ORAM import ORAM_Node
     topic_list = ["bot1_topic","bot2_topic","bot3_topic"]
     key_path_dict = "kyber_keys/bot1_client.key"
@@ -72,7 +72,7 @@
 * 使用方式：
     * 使用`send_data(data)`發送訊息，`data`傳入需要傳送給目標的指令資料，會執行aes加密後傳送給目標topic及以pathORAM_like混淆演算法選擇多個其他topic
     * ex:
-    ```python=
+    ```python
     from sros_package.publisher_ORAM import ORAM_Node
     topic_list = ["bot1_topic","bot2_topic","bot3_topic"]
     key_path_dict = "kyber_keys/bot1_client.key"
@@ -84,7 +84,7 @@
 
 #### 注意事項
 * 建議把sros_package放入workpsace/scr中，在其他package中使用以下範例import要用的功能
-    ```python=
+    ```python
     from sros_package.AES_tools import AES_tools
     from sros_package.publisher_ORAM import ORAM_Node
     from sros_package.kyber_client import kyber_client
