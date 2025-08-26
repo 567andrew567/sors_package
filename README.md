@@ -1,5 +1,10 @@
 # SROS_package
 
+## 安裝套件
+python
+1. pip install pycryptodome
+2. kyber 安裝方式麻煩參考[官方文件](https://github.com/open-quantum-safe/liboqs-python)
+
 ## 說明
 
 ### sros_package
