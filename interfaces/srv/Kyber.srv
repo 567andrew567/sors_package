@@ -1,0 +1,3 @@
+string public_key
+---
+string ciphertext
