@@ -97,6 +97,23 @@
 #### 注意事項
 * 必須要將interfaces資料夾放入要執行的ros2的workpsace/scr中一起編譯
 
+## 使用情境說明
+
+### user
+* 建立kyber client與server進行金鑰換
+* 以交換到的金鑰加密控制指令在傳送給server
+
+### server
+* 建立多個kyber server與user及bot交換金鑰
+* 以與user交換到的金鑰解密user傳送的控制指令
+* 以交換到的金鑰加密控制指令在並透過publisher_ORAM傳送給bot
+* 以與bot交換到的金鑰解密bot傳送的畫面資料
+
+### bot
+* 建立kyber client與server進行金鑰換
+* 以交換到的金鑰解密server傳送的控制指令
+* 以交換到的金鑰加密欲傳送給server的畫面資料
+
 ## 範例
 
 ### sros_kyber_aes_oram_client_test.py
