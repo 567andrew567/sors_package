@@ -1,5 +1,14 @@
 # SROS_package
 
+## SROS啟用方式
+安裝必須套件
+```
+sudo apt update
+sudo apt install libssl-dev
+colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
+```
+
+
 ## 安裝套件
 python
 1. pip install pycryptodome
