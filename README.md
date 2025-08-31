@@ -27,7 +27,7 @@ export ROS_SECURITY_STRATEGY=Enforce
 啟動Turtlesim
 ```
 被操作端:ros2 run turtlesim turtlesim_node --ros-args --enclave /tur1
-發送端:ros2 turtlesim turtle_teleop_key --ros-args --enclave /user
+發送端:ros2 run turtlesim turtle_teleop_key --ros-args --enclave /user
 ```
 
 
