@@ -20,7 +20,7 @@ ros2 security create_enclave demo_turtlesim /user
 ```
 設定環境變數
 ```
-export ROS_SECURITY_KEYSTORE=<存放憑證的資料夾>
+export ROS_SECURITY_KEYSTORE=<存放憑證的資料夾絕對路徑>
 export ROS_SECURITY_ENABLE=true
 export ROS_SECURITY_STRATEGY=Enforce
 ```
