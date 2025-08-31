@@ -1,11 +1,33 @@
 # SROS_package
 
-## SROS啟用方式
+## SROS使用方式
 安裝必須套件
 ```
 sudo apt update
 sudo apt install libssl-dev
 colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
+```
+建立一個存放憑證的資料夾
+```
+mkdir ~/sros2_demo
+cd ~/sros2_demo
+ros2 security create_keystore demo_turtlesim
+```
+依照需求建立憑證
+```
+ros2 security create_enclave demo_turtlesim /tur1
+ros2 security create_enclave demo_turtlesim /user
+```
+設定環境變數
+```
+export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_turtlesim
+export ROS_SECURITY_ENABLE=true
+export ROS_SECURITY_STRATEGY=Enforce
+```
+啟動Turtlesim
+```
+被操作端:ros2 run turtlesim turtlesim_node --ros-args --enclave /tur1
+發送端:ros2 turtlesim turtle_teleop_key --ros-args --enclave /user
 ```
 
 
