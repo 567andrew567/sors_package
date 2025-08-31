@@ -29,6 +29,12 @@ export ROS_SECURITY_STRATEGY=Enforce
 被操作端:ros2 run turtlesim turtlesim_node --ros-args --enclave /tur1
 發送端:ros2 run turtlesim turtle_teleop_key --ros-args --enclave /user
 ```
+未啟用SROS時查看list
+<img width="683" height="594" alt="image" src="https://github.com/user-attachments/assets/57fe6282-b0ea-47c7-9086-533be31d3108" />
+
+啟用SROS時查看list
+<img width="687" height="115" alt="image" src="https://github.com/user-attachments/assets/ef8fa50d-d320-4a87-9b27-2cdafcc4d103" />
+
 
 
 ## 安裝套件
