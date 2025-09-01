@@ -29,6 +29,48 @@ export ROS_SECURITY_STRATEGY=Enforce
 被操作端:ros2 run <接收端程式> --ros-args --enclave /tur1
 發送端:ros2 run <發送端程式> --ros-args --enclave /user
 ```
+如果需要跨裝置配置請使用相同的資料夾名稱並配置好同一台CA簽發的enclaves與public資料夾
+```
+Example:
+# Terminal 1
+keystore
+ ├── enclaves
+ │   ├── governance.p7s
+ │   ├── governance.xml
+ │   └── talker_listener
+ │       └── listener
+ │           ├── cert.pem
+ │           ├── governance.p7s
+ │           ├── identity_ca.cert.pem
+ │           ├── key.pem
+ │           ├── permissions_ca.cert.pem
+ │           ├── permissions.p7s
+ │           └── permissions.xml
+ └── public
+     ├── ca.cert.pem
+     ├── identity_ca.cert.pem
+     └── permissions_ca.cert.pem
+
+# Terminal 2
+keystore
+ ├── enclaves
+ │   ├── governance.p7s
+ │   ├── governance.xml
+ │   └── talker_listener
+ │       └── talker
+ │           ├── cert.pem
+ │           ├── governance.p7s
+ │           ├── identity_ca.cert.pem
+ │           ├── key.pem
+ │           ├── permissions_ca.cert.pem
+ │           ├── permissions.p7s
+ │           └── permissions.xml
+ └── public
+     ├── ca.cert.pem
+     ├── identity_ca.cert.pem
+     └── permissions_ca.cert.pem
+```
+
 未啟用SROS時查看list(以turtlesim程式為範例):
 
 <img width="683" height="594" alt="image" src="https://github.com/user-attachments/assets/57fe6282-b0ea-47c7-9086-533be31d3108" />
