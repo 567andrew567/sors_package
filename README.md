@@ -9,31 +9,31 @@ colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fast
 ```
 建立一個存放憑證的資料夾
 ```
-mkdir ~/sros2_demo
-cd ~/sros2_demo
-ros2 security create_keystore demo_turtlesim
+mkdir <存放憑證的資料夾路徑>
+cd <存放憑證的資料夾路徑>
+ros2 security create_keystore <憑證域名稱>
 ```
-依照需求建立憑證
+依照需求建立憑證(可建立多個在分配到其他機台上去)
 ```
-ros2 security create_enclave demo_turtlesim /tur1
-ros2 security create_enclave demo_turtlesim /user
+ros2 security create_enclave <憑證域名稱> <節點名稱>
+ros2 security create_enclave <憑證域名稱> <節點名稱>
 ```
 設定環境變數
 ```
-export ROS_SECURITY_KEYSTORE=<存放憑證的資料夾絕對路徑>
+export ROS_SECURITY_KEYSTORE=<存放憑證的資料夾之絕對路徑>
 export ROS_SECURITY_ENABLE=true
 export ROS_SECURITY_STRATEGY=Enforce
 ```
 啟動Turtlesim
 ```
-被操作端:ros2 run turtlesim turtlesim_node --ros-args --enclave /tur1
-發送端:ros2 run turtlesim turtle_teleop_key --ros-args --enclave /user
+被操作端:ros2 run <接收端程式> --ros-args --enclave /tur1
+發送端:ros2 run <發送端程式> --ros-args --enclave /user
 ```
-未啟用SROS時查看list:
+未啟用SROS時查看list(以turtlesim程式為範例):
 
 <img width="683" height="594" alt="image" src="https://github.com/user-attachments/assets/57fe6282-b0ea-47c7-9086-533be31d3108" />
 
-啟用SROS時查看list:
+啟用SROS時查看list(以turtlesim程式為範例):
 
 <img width="687" height="115" alt="image" src="https://github.com/user-attachments/assets/ef8fa50d-d320-4a87-9b27-2cdafcc4d103" />
 
